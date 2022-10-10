@@ -1,13 +1,183 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+.title{
+  /* margin: 50px; */
+  font-size: 52px;
+  color: #000;
+  font-weight: bold;
+  background: #fff;
+}
+.container{
+    display:flex; 
+    flex-direction: column;
+    height:100vh;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+    /* background-image: url('./assets/translate-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
+  }
+  .container::before {    
+    content: "";
+    background-image: url('./assets/translate-bg.jpg');
+    background-size: cover; 
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+}
+  h1{
+    width: 100%;
+    opacity: 1;
+  }
+  #form-file-upload {
+    height: 16rem;
+    width: 28rem;
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  #input-file-upload {
+  display: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#label-file-upload {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-width: 2px;
+  border-radius: 1rem;
+  border-style: dashed;
+  border-color: #cbd5e1;
+  background-color:rgb(240, 249, 223);
+}
+#label-file-upload:hover {
+  cursor: pointer;
+}
+.upload-button {
+  width:184px;
+  display:block;
+  height:37px;
+  border-radius:6px;
+  margin:4px 6px;
+  background:-webkit-linear-gradient(#93da14,#4c8b09);
+  border:1px solid #3bb50a;
+  box-shadow:inset 0 0 1px .5px rgba(255,255,255,.4), 0 .3em 0 0em #2d5107, 0 .4em 1em rgba(0,0,0,.3);
+  text-align:center;
+  color:#fff; 
+  font-weight:bold;
+  font-family:helvetica;
+  -webkit-font-smoothing:antialiased;
+  line-height:2.6;
+  font-size:.91em;
+  text-decoration:none;
+  text-shadow:0 1px 0 rgba(0,0,0,.4);
+  text-transform:uppercase;
+  position:relative;
+}
+.upload-button:hover {
+  background:-webkit-linear-gradient(#60ac0e,#4d8c0a);
+  box-shadow:inset 0 0 1px .5px rgba(255,255,255,.4), 0 .25em 0 0em #2d5107, 0 .3em 1em rgba(0,0,0,.3);top:.05em;}
+
+.upload-button:active {
+  background:-webkit-linear-gradient(#2c5104,#4d8c0a);
+  box-shadow:inset 0 0 1px .5px rgba(0,0,0,.4), 0 0em 0 0em #2d5107,inset 0 .4em 1em rgba(0,0,0,.3), 0 .14em 0 0 rgba(255,255,255,.8);
+  top:.3em; 
+  border:1px solid #213c05;
+  color:#fffffd;
+}
+.highlight-button {
+  width:184px;
+  display:block;
+  height:37px;
+  border-radius:6px;
+  margin: 10px auto;
+  background:-webkit-linear-gradient(#f0ea86,#b0b155);
+  border:1px solid #180ab5;
+  text-align:center;
+  color:rgb(75, 67, 67); 
+  font-weight:bold;
+  font-family:helvetica;
+  -webkit-font-smoothing:antialiased;
+  line-height:2.6;
+  font-size:.91em;
+  text-decoration:none;
+  text-shadow:0 1px 0 rgba(0,0,0,.4);
+  text-transform:uppercase;
+  position:relative;
+}
+.highlight-button::after {
+  content: "";
+  background-image: url('./assets/marker.jpg');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1px;
+  right: 0px;
+  bottom: 0px;
+  left: 155px;
+}
+.highlight-button:hover {
+  background:-webkit-linear-gradient(#e6d602,#e0ab19);
+}
+
+.highlight-button:active {
+  background:-webkit-linear-gradient(#cd930b,#8c370a);
+  top:.3em; 
+  border:1px solid #213c05;
+  color:#fffffd;
+}
+
+#label-file-upload.drag-active {
+  background-color: #ffffff;
+}
+
+#drag-file-element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.file-upload-error{
+  color:red;
+  position: absolute;
+  left: auto;
+  bottom: 10px;
+}
+
+.file-upload-status{
+  color:rgb(21, 21, 20);
+  position: absolute;
+  left: 200px;
+  font-size:25px;
+  /* margin-left: 15px; */
+  bottom: 10px;
+}
+
+.file-upload-status::before{
+  content: "";
+  background-image: url('./assets/word-icon.png');
+  background-repeat: no-repeat;
+  background-size: contain; 
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: -50px;
+}
+
+.loader{
+  margin: 20px 52px 0px ;
 }
