@@ -93,6 +93,7 @@
   border:1px solid #213c05;
   color:#fffffd;
 }
+
 .highlight-button {
   width:184px;
   display:block;
@@ -130,6 +131,50 @@
 
 .highlight-button:active {
   background:-webkit-linear-gradient(#cd930b,#8c370a);
+  top:.3em; 
+  border:1px solid #213c05;
+  color:#fffffd;
+}
+
+.open-button {
+  width: 250px;
+  display:block;
+  height:37px;
+  border-radius:6px;
+  margin: 20px auto;
+  padding: 2px 5px;
+  background:-webkit-linear-gradient(#4422db,#1958e0);
+  border:1px solid #180ab5;
+  text-align:center;
+  color:rgb(212, 214, 230); 
+  font-weight:bold;
+  font-family:helvetica;
+  -webkit-font-smoothing:antialiased;
+  line-height:2.6;
+  font-size:.91em;
+  text-decoration:none;
+  text-shadow:0 1px 0 rgba(0,0,0,.4);
+  text-transform:uppercase;
+  position:relative;
+}
+.open-button::after {
+  content: "";
+  background-image: url('./assets/open.png');
+  background-size:cover; 
+  height: 100px; width:100px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  bottom: 0px;
+  left: 200px;
+}
+.open-button:hover {
+  background:-webkit-linear-gradient(#1d0b6d,#0f3994);
+}
+
+.open-button:active {
+  background:-webkit-linear-gradient(#84a8f2,#7755dd);
   top:.3em; 
   border:1px solid #213c05;
   color:#fffffd;

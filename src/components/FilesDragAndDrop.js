@@ -9,7 +9,8 @@ export default function FilesDragAndDrop() {
     const [dragActive, setDragActive] = useState(false)
     const [validFile, setValidFile] = useState(null)
     const [isError, setIsError] = useState(null)
-    const [result, setResult] = useState(null)
+    const [isOpen, setIsOpen] = useState(false)
+    // const [result, setResult] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [selectedFile, setSelectedFile] = useState(null)
     const inputRef = useRef(null);
@@ -46,6 +47,7 @@ const handleChange = function(e) {
   }
 
 const handleFiles = (files) =>{
+    setIsOpen(false)
     setSelectedFile(files[0])
 }
 
@@ -81,12 +83,27 @@ const handleHighlight = async() =>{
 
       })
       console.log(response);
-      setResult(response.data)
+      if (response.data.status === 200){
+        // setResult(response.data.filepath)
+        setIsOpen(true)
+      }
     } catch(error) {
       console.log(error)
     }
     finally{
       setIsLoading(false)
+    }
+}
+
+const handleOpenFolder = async() =>{
+    try {
+      const response = await axios({
+        method: "get",
+        url: "http://127.0.0.1:5000/open",
+      })
+      console.log(response);
+    } catch(error) {
+      console.log(error)
     }
 }
 
@@ -108,12 +125,13 @@ const onButtonClick = () => {
           {isLoading && <Loader/>}
       { validFile && <div className="file-upload-status">{validFile}</div> }
       { isError && <div className="file-upload-error">{isError}</div> }
-      { result && <div className="file-upload-result">{result}</div> }
+      {/* { result && <div className="file-upload-result">{result}</div> } */}
         </div> 
       </label>
       { dragActive && <div id="drag-file-element" onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}></div> }
 
       <button className="highlight-button" onClick={handleHighlight}>Highlight</button>
+      { isOpen && <button className="open-button" onClick={handleOpenFolder}>Open containing folder</button> }
     </form>
     </div>
   );
